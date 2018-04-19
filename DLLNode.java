@@ -20,7 +20,7 @@ public class DLLNode<T>
 
 
   //--------------v  ACCESSORS  v--------------
-  public T getCargo() { return _cargo; }
+  public String  getCargo() { return _cargo.toString(); }
 
   public DLLNode<T> getNext() { return _nextNode; }
 
@@ -29,29 +29,29 @@ public class DLLNode<T>
 
 
   //--------------v  MUTATORS  v--------------
-  public T setCargo( T newCargo )
+  public String setCargo( T newCargo )
   {
-    T foo = getCargo();
+    String foo = getCargo();
     _cargo = newCargo;
     return foo;
   }
 
   public DLLNode<T> setNext( DLLNode<T> newNext )
   {
-    DLLNode foo = getNext();
+    DLLNode<T> foo = getNext();
     _nextNode = newNext;
     return foo;
   }
 
-  public DLLNode setPrev( DLLNode newPrev )
+  public DLLNode<T> setPrev( DLLNode<T> newPrev )
   {
-    DLLNode foo = getPrev();
-    _prevNode = newPrev;
-    return foo;
+      DLLNode<T> foo = getPrev();
+      _prevNode = newPrev;
+      return foo;
   }
   //--------------^  MUTATORS  ^--------------
-
-
+  
+  
   // override inherited toString
   public String toString() { return _cargo.toString(); }
 
@@ -59,23 +59,17 @@ public class DLLNode<T>
   public static void main( String[] args )
   {
     //Below is an exercise in creating a linked list...
+      /**
 
-    /*********************
      //Create a node
-	DLLNode first = new DLLNode( "cat", null );
+      DLLNode<String> first = new DLLNode<String>( "cat", null , null);
+      DLLNode<String> next = new DLLNode<String>("dog", null, null);
+      first.setNext(next);
+      System.out.println(first.getCargo());
+      System.out.println(first.getNext());
+      
+      **/
 
-	//Create a new node after the first
-	first.setNext( new DLLNode( "dog", null ) );
-
-	//Create a third node after the second
-	first.getNext().setNext( new DLLNode( "cow", null ) );
-
-	DLLNode temp = first; 
-	while( temp != null ) {
-	    System.out.println( temp );
-	    temp = temp.getNext();
-	}
-    ***********************/
   }//end main
 
 }//end class DLLNode

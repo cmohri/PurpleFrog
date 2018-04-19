@@ -7,26 +7,30 @@ public class QQKachoo<T> implements Deque<T>{
     public QQKachoo(){
 	_front = null;
 	_end = null;
+	_size =0 ;
     }
 
-    public T peekFirst(){
-	return _front.getValue();
+    public String peekFirst(){
+	if (isEmpty()){ return null; }
+	return _front.getCargo();
     }
 
-    public T peekLast(){
-	return _end.getValue();
-    }
+    public String peekLast(){
 
-    public T removeFirst(){
-	T retVal = peekFirst();
-	_front = _front.getNext();
+	String retVal  = _end.getCargo();
 	return retVal;
-	_size -=1 ;
     }
 
-    public T removeLast(){
-	T retVal = peekLast();
-	_last = _last.getLast();
+    public String removeFirst(){
+	String retVal = peekFirst();
+	_front = _front.getNext();
+	_size -=1 ;
+	return retVal;
+    }
+
+    public String removeLast(){
+	String retVal = peekLast();
+	_end = _end.getPrev();
 	_size -= 1;
 	return retVal;
     }
@@ -42,10 +46,17 @@ public class QQKachoo<T> implements Deque<T>{
     public void addFirst(T x){
 	DLLNode<T> node = new DLLNode<T>(x, null, _front);
 	_front = node;
+	_size += 1;
     }
     
     public void addLast(T x){
 	DLLNode<T> node = new DLLNode<T>(x, _end, null);
 	_end = node;
+	_size += 1;
     }
+
+    public static void main (String[] args){
+    }
+
+
 }
