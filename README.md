@@ -5,10 +5,13 @@
 Rationale: This way we can have constant running time for addFirst, addLast, removeFirst, removeLast by using the same algorithm we used for LLQueue, but at both ends. It is easy to access both the front and end of the queue by having pointers that point to the front and end of the queue. Using DLLNode methods like setNext() and getNext(), we can have constant running time for all of the methods that we wish to implement.
 
 ## Method Selections: 
+
+```
 - int size()
 - void addFirst(T x), void addLast(T x)
 - T peekFirst(), T peekLast()
 - T removeFirst(), T removeLast()
+````
 
 __Rationale:__ These methods provide the basics for a double-ended queue. They provide the same structure of functionality that a one-ended queue provides. 
 
