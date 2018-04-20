@@ -8,9 +8,12 @@ Rationale: This way we can have constant running time for addFirst, addLast, rem
 
 ```
 - int size()
+- boolean isEmpty()
 - void addFirst(T x), void addLast(T x)
 - T peekFirst(), T peekLast()
 - T removeFirst(), T removeLast()
+- T getFirst(), T getLast()
+- T pollFirst(), T pollLast()
 ````
 
 __Rationale:__ These methods provide the basics for a double-ended queue. They provide the same structure of functionality that a one-ended queue provides. 
@@ -24,7 +27,11 @@ __Rationale:__ These methods provide the basics for a double-ended queue. They p
      Return getValue of \_first, \_last respectively
 5. Implement removeFirst() and removeLast()
      These should have constant running time
-6. Robustify by throwing exceptions, etc.
+6. Implement pollFirst() and pollLast()
+     Remove the respective node
+7. Implement getFirst() and getLast()
+     These should have constant running time
+8. Robustify by throwing exceptions, etc.
 
 ## Dev Plan: 
 \_first, \_last will be instance variables of the type DLLNode<T>
@@ -41,3 +48,11 @@ peekLast() will use the DLLNode method getValue() to return the value of the DLL
 removeFirst() will change the \_front pointer so that it points to \_front.getNext().
 
 removeLast() will change the \_last pointer so that it points to \_front.getLast().
+
+pollFirst() will set the front node to the node after what is currently \_front, therefore removing the front node.
+
+pollFirst() will set the last node to the node before what is currently \_end, therefore removing the end node.
+
+getFirst() will return the cargo of the \_front node.
+
+getLast() will return the cargo of the \_end node.
