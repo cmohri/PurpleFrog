@@ -1,4 +1,7 @@
 //Class QQKachoo<T> implements interface Deque<T>
+
+import java.util.NoSuchElementException;
+
 public class QQKachoo<T> implements Deque<T>{
 
     //instance vars: 
@@ -73,7 +76,7 @@ public class QQKachoo<T> implements Deque<T>{
 
     //removes the first DLLNode
     //decrements size by 1
-    public T removeFirst(){
+    public T pollFirst(){
 	if (isEmpty()) return null;
 	T retval = peekFirst();
 	_front= _front.getNext();
@@ -83,13 +86,33 @@ public class QQKachoo<T> implements Deque<T>{
 
     //removes the last DLLNode
     //decrements size by 1
-    public T removeLast(){
+    public T pollLast(){
 	if (isEmpty()) return null;
 	T retval = peekLast();
 	_end = _end.getPrev();
 	return retval;
     }
 
+    /**Retrieves, but does not remove, the first element of this deque. This met \
+    hod differs from peekFirst only in that it throws an exception if this deque is \
+    empty.**/
+    public T getFirst(){
+	if (isEmpty()){
+	    throw new NoSuchElementException();
+	}
+	
+	return peekFirst();
+    }
+
+    /**
+       Retrieves, but does not remove, the last element of this deque. This method differs from peekLast only in that it throws an exception if this deque is  mpty. 
+    **/
+    public T getLast(){
+	if (isEmpty()){
+	    throw new NoSuchElementException();
+	}
+	return peekLast();
+    }
     
 
     public static void main (String[] args){
@@ -116,12 +139,14 @@ public class QQKachoo<T> implements Deque<T>{
         System.out.println(a.peekFirst());
         System.out.println(a.peekLast());
 
-	a.removeFirst();
+	a.pollFirst();
 	System.out.println(a.peekFirst());
-	a.removeFirst();
+	a.pollFirst();
 	System.out.println(a.peekFirst());
-	a.removeFirst();
+	a.pollFirst();
 	System.out.println(a.peekFirst());
+	//System.out.println(a.getFirst());
+	System.out.println(a.getLast());
 
     }
 

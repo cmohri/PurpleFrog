@@ -10,8 +10,9 @@ public interface Deque<T>{
     public void addLast(T x);
     
     //removes from front or end
-    public T removeFirst();
-    public T removeLast();
+    //Retrieves and removes the last element of this deque, or returns null if this deque is empty.
+    public T pollFirst();
+    public T pollLast();
 
     //returns size of the queue
     public int size();
@@ -23,5 +24,7 @@ public interface Deque<T>{
     public T getFirst();
     //Retrieves, but does not remove, the last element of this deque. This method differs from peekLast only in that it throws an exception if this deque is empty.
     public T getLast();
+
+
 }
     
