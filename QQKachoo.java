@@ -9,7 +9,7 @@ public class QQKachoo<T> implements Deque<T>{
     private DLLNode<T> _end;
     private int _size;
 
-    //construcotr: 
+    //constructor: 
     public QQKachoo(){
 	_front = null;
 	_end = null;
@@ -123,6 +123,7 @@ public class QQKachoo<T> implements Deque<T>{
 	return peekLast();
     }//O(1)
 
+	//toString method prints out contents of the Deque
     public String toString() {
 	String retVal = "";
 	DLLNode<T> temp = _front;
@@ -131,7 +132,7 @@ public class QQKachoo<T> implements Deque<T>{
 	    temp = temp.getNext();
 	}
 	return retVal;
-    }
+    } //O(n)
 
     public static void main (String[] args){
 	QQKachoo<String> a = new QQKachoo<String>();
