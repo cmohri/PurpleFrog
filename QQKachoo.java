@@ -89,7 +89,10 @@ public class QQKachoo<T> implements Deque<T>{
     public T pollLast(){
 	if (isEmpty()) return null;
 	T retval = peekLast();
-	_end = _end.getPrev();
+	if (_size != 1){
+		
+		_end = _end.getPrev();}
+	_size --;
 	return retval;
     } //O(1)
 
