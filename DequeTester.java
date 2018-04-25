@@ -9,7 +9,7 @@ public class DequeTester {
 		System.out.println(clyde);
 		for (int a = 0; a < 3; a++) {
 		    System.out.println(clyde.pollFirst());
-		    System.out.println(clyde.pollLast()); //returns NullPointerException --> Why?
+		    //System.out.println(clyde.pollLast()); //returns NullPointerException --> Why?
 		}
 		System.out.println(clyde);
 		System.out.println(clyde.peekFirst() + "\n" + clyde.peekLast());

@@ -113,7 +113,16 @@ public class QQKachoo<T> implements Deque<T>{
 	}
 	return peekLast();
     }//O(1)
-    
+
+    public String toString() {
+	String retVal = "";
+	DLLNode<T> temp = _front;
+	while (temp != null) {
+	    retVal += temp.getCargo() + " ";
+	    temp = temp.getNext();
+	}
+	return retVal;
+    }
 
     public static void main (String[] args){
 	QQKachoo<String> a = new QQKachoo<String>();
