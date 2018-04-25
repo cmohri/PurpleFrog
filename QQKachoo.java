@@ -17,13 +17,13 @@ public class QQKachoo<T> implements Deque<T>{
     }
 
     //returns the value of the size attribute
-    public int size(){
-	return _size;
+    public int size(){ 
+	return _size; //O(1)
     }
 
     //returns whether the deque is empty
-    public boolean isEmpty(){
-	return (_size <= 0);
+    public boolean isEmpty(){ 
+	return (_size <= 0); //O(1)
     }
 
     //returns value of first, without removing from the deque
@@ -32,7 +32,7 @@ public class QQKachoo<T> implements Deque<T>{
 	if (isEmpty()){
 	    return null;
 	}
-	return _front.getCargo();
+	return _front.getCargo(); //O(1)
     }//end peekFirst()
 
     //returns value of end, without removing from the deque
@@ -41,7 +41,7 @@ public class QQKachoo<T> implements Deque<T>{
 	if (isEmpty()){
 	    return null;
 	}
-	return _end.getCargo();
+	return _end.getCargo(); //O(1)
     }//end peekLast()
 
     //adds to the front
@@ -57,7 +57,7 @@ public class QQKachoo<T> implements Deque<T>{
 	    _front = foo;
 	}
 	_size += 1;
-    }
+    } //O(1)
 
     //adds to the end
     //increments size by 1
@@ -72,7 +72,7 @@ public class QQKachoo<T> implements Deque<T>{
             _end = foo;
 	}
         _size +=1;
-    }
+    } //O(1)
 
     //removes the first DLLNode
     //decrements size by 1
@@ -82,7 +82,7 @@ public class QQKachoo<T> implements Deque<T>{
 	_front= _front.getNext();
 	_size -=1 ;
 	return retval;
-    }
+    } //O(1)
 
     //removes the last DLLNode
     //decrements size by 1
@@ -91,7 +91,7 @@ public class QQKachoo<T> implements Deque<T>{
 	T retval = peekLast();
 	_end = _end.getPrev();
 	return retval;
-    }
+    } //O(1)
 
     /**Retrieves, but does not remove, the first element of this deque. This met \
     hod differs from peekFirst only in that it throws an exception if this deque is \
@@ -102,7 +102,7 @@ public class QQKachoo<T> implements Deque<T>{
 	}
 	
 	return peekFirst();
-    }
+    }//O(1)
 
     /**
        Retrieves, but does not remove, the last element of this deque. This method differs from peekLast only in that it throws an exception if this deque is  mpty. 
@@ -112,41 +112,41 @@ public class QQKachoo<T> implements Deque<T>{
 	    throw new NoSuchElementException();
 	}
 	return peekLast();
-    }
+    }//O(1)
     
 
     public static void main (String[] args){
 	QQKachoo<String> a = new QQKachoo<String>();
 
-	System.out.println(a.size());
-	System.out.println(a.isEmpty());
-	System.out.println(a.peekFirst());
-	System.out.println(a.peekLast());
+	System.out.println(a.size()); //Should be 0
+	System.out.println(a.isEmpty()); //Should be true
+	System.out.println(a.peekFirst()); //Should be null
+	System.out.println(a.peekLast()); //Should be null
 
 	a.addFirst("hello");
-	System.out.println(a.isEmpty());
-        System.out.println(a.peekFirst());
-        System.out.println(a.peekLast());
+	System.out.println(a.isEmpty()); //Should be false
+        System.out.println(a.peekFirst()); //Should be hello
+        System.out.println(a.peekLast()); //Should be hello
 
 	a.addFirst("world");
-	System.out.println(a.isEmpty());
-        System.out.println(a.peekFirst());
-        System.out.println(a.peekLast());
+	System.out.println(a.isEmpty()); //Should be false
+        System.out.println(a.peekFirst()); //Should be world
+        System.out.println(a.peekLast()); //Should be hello
 
 	a.addLast("!!");
-	System.out.println(a.isEmpty());
-	System.out.println(a.size());
-        System.out.println(a.peekFirst());
-        System.out.println(a.peekLast());
+	System.out.println(a.isEmpty()); //Should be false
+	System.out.println(a.size()); //Should be 3
+        System.out.println(a.peekFirst()); //Should be world
+        System.out.println(a.peekLast()); //Should be !!
 
 	a.pollFirst();
-	System.out.println(a.peekFirst());
+	System.out.println(a.peekFirst()); //Should be hello
 	a.pollFirst();
-	System.out.println(a.peekFirst());
+	System.out.println(a.peekFirst()); //Should be !!
 	a.pollFirst();
-	System.out.println(a.peekFirst());
-	//System.out.println(a.getFirst());
-	System.out.println(a.getLast());
+	System.out.println(a.peekFirst()); //Should be null
+	//System.out.println(a.getFirst());  //Should return error
+	//System.out.println(a.getLast()); //Should return error
 
     }
 
