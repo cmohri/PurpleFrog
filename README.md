@@ -56,3 +56,8 @@ pollFirst() will set the last node to the node before what is currently \_end, t
 getFirst() will return the cargo of the \_front node.
 
 getLast() will return the cargo of the \_end node.
+
+## Changes
+
+* Updated the methods in QQKachoo to include runtime efficiencies
+* Added a toString() method in QQKachoo
