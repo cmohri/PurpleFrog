@@ -20,23 +20,30 @@ __Rationale:__ These methods provide the basics for a double-ended queue. They p
 
 ## To-do list: 
 1. Set instance variables: \_first , \_last, \_size
-2. Implement size() method: returns \_size's value
+2. Implement size() method: 
+    
+    Functionality: returns \_size's value
+    Should have constant running time, as accessor method.
 3. Implement addFirst(T x) and addLast(T x)
     
-    These should have constant running time
+    Functionality: Add to the front or end of the Deque.
+    These methods should have constant running time. 
 4. Implement peekFirst() and peekLast()
     
-    Return getValue of \_first, \_last respectively
-5. Implement removeFirst() and removeLast()
+    Functionality: Return getValue of \_first, \_last respectively and return null if the Deque is empty.
+    These methods should have constatn running time.
+5. Implement getFirst() and getLast()
      
-     These should have constant running time. 
-     These methods throw an error if the Deque is empty.
+     Functionality: Return getValue of \_first, \_last respectively and throw an error if the Deque is empty. 
+     These should have constant running time        
 6. Implement pollFirst() and pollLast()
      
-     Functionality: Remove the respective node
-     These should have constant running time. They differ from removeFirst(), removeLast() because they return null if the Deque is empty. 
-7. Implement getFirst() and getLast()
-     These should have constant running time
+     Functionality: Remove the respective node, and return null if the Deque is empty.
+     These should have constant running time. 
+7. Implement removeFirst() and removeLast()
+     
+     Functionality: Remove the first or last element of the Deque and throw an error if the Deque is empty.
+     These methods should have constant running time. 
 8. Robustify by throwing exceptions, etc.
 
 ## Dev Plan: 
@@ -51,13 +58,13 @@ peekFirst() will use the DLLNode method getValue() to return the value of the DL
     
 peekLast() will use the DLLNode method getValue() to return the value of the DLLNode<T> pointed to by _last.
     
-removeFirst() will change the \_front pointer so that it points to \_front.getNext().
+removeFirst() will change the \_front pointer so that it points to \_front.getNext(). If the Deque is empty, then a a NoSuchElementException will be thrown.
 
-removeLast() will change the \_last pointer so that it points to \_front.getLast().
+removeLast() will change the \_last pointer so that it points to \_front.getLast(). If the Deque is empty, then a a NoSuchElementException will be thrown.
 
-pollFirst() will set the front node to the node after what is currently \_front, therefore removing the front node.
+pollFirst() will set the front node to the node after what is currently \_front, therefore removing the front node. If the Deque is empty, then null will be returned.
 
-pollFirst() will set the last node to the node before what is currently \_end, therefore removing the end node.
+pollFirst() will set the last node to the node before what is currently \_end, therefore removing the end node. If the Deque is empty, then null will be returned.
 
 getFirst() will return the cargo of the \_front node.
 
