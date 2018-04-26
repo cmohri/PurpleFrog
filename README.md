@@ -20,27 +20,31 @@ __Rationale:__ These methods provide the basics for a double-ended queue. They p
 
 ## To-do list: 
 1. Set instance variables: \_first , \_last, \_size
-2. Implement size() method: 
+2. Implement size() method 
     
     Functionality: returns \_size's value
     Should have constant running time, as accessor method.
-3. Implement addFirst(T x) and addLast(T x)
+3. Implemeent isEmpty() method
+
+    Functionality: returns whether the Deque is empty.
+    Should have constant running time.
+4. Implement addFirst(T x) and addLast(T x)
     
     Functionality: Add to the front or end of the Deque.
     These methods should have constant running time. 
-4. Implement peekFirst() and peekLast()
+5. Implement peekFirst() and peekLast()
     
     Functionality: Return getValue of \_first, \_last respectively and return null if the Deque is empty.
     These methods should have constatn running time.
-5. Implement getFirst() and getLast()
+6. Implement getFirst() and getLast()
      
      Functionality: Return getValue of \_first, \_last respectively and throw an error if the Deque is empty. 
      These should have constant running time        
-6. Implement pollFirst() and pollLast()
+7. Implement pollFirst() and pollLast()
      
      Functionality: Remove the respective node, and return null if the Deque is empty.
      These should have constant running time. 
-7. Implement removeFirst() and removeLast()
+8. Implement removeFirst() and removeLast()
      
      Functionality: Remove the first or last element of the Deque and throw an error if the Deque is empty.
      These methods should have constant running time. 
@@ -49,6 +53,10 @@ __Rationale:__ These methods provide the basics for a double-ended queue. They p
 ## Dev Plan: 
 \_first, \_last will be instance variables of the type DLLNode<T>
 \_size will be an instance variable of the type int
+
+size() will return the value of the instance variable \_size.
+
+isEmpty() will return whether \_size is <= 0.
 
 addFirst(T x) will make a DLLNode<T> with x as its cargo/value. This DLLNode<T> will then set its next to _first, and the _first pointer will switch to point to the DLLNode<T> this method created.
 
