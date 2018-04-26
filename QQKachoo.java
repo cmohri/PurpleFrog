@@ -77,13 +77,10 @@ public class QQKachoo<T> implements Deque<T>{
     //removes the first DLLNode
     //decrements size by 1
     public T pollFirst(){
-	if (isEmpty()) return null;
-	T retval = peekFirst();
-	if (_size == 1){
-	    _end = null;
-	    _front = null; }
-	else {
-	    _front =_front.getNext(); }
+	if (isEmpty()) 
+	    return null;
+	T retval = _front.getCargo();
+	_front = _front.getNext();
 	_size -=1 ;
 	return retval;
     } //O(1)
@@ -91,13 +88,10 @@ public class QQKachoo<T> implements Deque<T>{
     //removes the last DLLNode
     //decrements size by 1
     public T pollLast(){
-	if (isEmpty()) return null;
+	if (isEmpty()) 
+	    return null;
 	T retval = peekLast();
-	if (_size == 1){
-	    _end = null;
-	    _front = null; }
-	else {
-	    _end =_end.getPrev(); }
+	_end = _end.getPrev();
 	_size --;
 	return retval;
     } //O(1)
@@ -110,7 +104,7 @@ public class QQKachoo<T> implements Deque<T>{
 	    throw new NoSuchElementException();
 	}
 	
-	return peekFirst();
+	return _front.getCargo();
     }//O(1)
 
     /**
@@ -120,16 +114,42 @@ public class QQKachoo<T> implements Deque<T>{
 	if (isEmpty()){
 	    throw new NoSuchElementException();
 	}
-	return peekLast();
+	return _end.getCargo();
     }//O(1)
+
+
+    //Remove the first element of the Deque and throw an error if the Deque is empty.
+    public T removeFirst(){
+	if (isEmpty()){
+	    throw new NoSuchElementException();
+	}
+	
+	T retval = _front.getCargo();
+	_front = _front.getNext();
+	_size -= 1;
+	return retval;
+    }//O(1)
+
+    //Remove the last element of the Deque and throw an error if the Deque is empty.
+    public T removeLast(){
+	if (isEmpty()){
+	    throw new NoSuchElementException();
+	}
+	T retval = _end.getCargo();
+	_end = _end.getPrev();
+	_size -=1;
+	return retval;
+    } //O(1)
 
 	//toString method prints out contents of the Deque
     public String toString() {
 	String retVal = "";
 	DLLNode<T> temp = _front;
-	while (temp != null) {
+	int ctr = 0;
+	while (ctr< _size) {
 	    retVal += temp.getCargo() + " ";
 	    temp = temp.getNext();
+	    ctr += 1;
 	}
 	return retVal;
     } //O(n)
@@ -158,8 +178,11 @@ public class QQKachoo<T> implements Deque<T>{
         System.out.println(a.peekFirst()); //Should be world
         System.out.println(a.peekLast()); //Should be !!
 
-	a.pollFirst();
-	System.out.println(a.peekFirst()); //Should be hello
+	System.out.println("a: " + a);
+	a.pollFirst(); 
+	System.out.println(a.isEmpty()); //should be false
+	System.out.println("a: " + a);
+	System.out.println(a.peekLast()); //Should be hello
 	a.pollFirst();
 	System.out.println(a.peekFirst()); //Should be !!
 	a.pollFirst();
