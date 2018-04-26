@@ -22,13 +22,19 @@ __Rationale:__ These methods provide the basics for a double-ended queue. They p
 1. Set instance variables: \_first , \_last, \_size
 2. Implement size() method: returns \_size's value
 3. Implement addFirst(T x) and addLast(T x)
+    
     These should have constant running time
 4. Implement peekFirst() and peekLast()
-     Return getValue of \_first, \_last respectively
+    
+    Return getValue of \_first, \_last respectively
 5. Implement removeFirst() and removeLast()
-     These should have constant running time
+     
+     These should have constant running time. 
+     These methods throw an error if the Deque is empty.
 6. Implement pollFirst() and pollLast()
-     Remove the respective node
+     
+     Functionality: Remove the respective node
+     These should have constant running time. They differ from removeFirst(), removeLast() because they return null if the Deque is empty. 
 7. Implement getFirst() and getLast()
      These should have constant running time
 8. Robustify by throwing exceptions, etc.
