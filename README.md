@@ -87,5 +87,5 @@ getLast() will return the cargo of the \_end node.
 
 ## Changes
 
-* Updated the methods in QQKachoo to include runtime efficiencies
+* Updated the methods in QQKachoo to include runtime efficiencies, as well as comments in the main method.
 * Added a toString() method in QQKachoo
