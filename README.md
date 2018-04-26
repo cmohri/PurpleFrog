@@ -23,30 +23,37 @@ __Rationale:__ These methods provide the basics for a double-ended queue. They p
 2. Implement size() method 
     
     Functionality: returns \_size's value
+    
     Should have constant running time, as accessor method.
 3. Implemeent isEmpty() method
 
     Functionality: returns whether the Deque is empty.
+    
     Should have constant running time.
 4. Implement addFirst(T x) and addLast(T x)
     
     Functionality: Add to the front or end of the Deque.
+    
     These methods should have constant running time. 
 5. Implement peekFirst() and peekLast()
     
     Functionality: Return getValue of \_first, \_last respectively and return null if the Deque is empty.
+    
     These methods should have constatn running time.
 6. Implement getFirst() and getLast()
      
      Functionality: Return getValue of \_first, \_last respectively and throw an error if the Deque is empty. 
+     
      These should have constant running time        
 7. Implement pollFirst() and pollLast()
      
      Functionality: Remove the respective node, and return null if the Deque is empty.
+     
      These should have constant running time. 
 8. Implement removeFirst() and removeLast()
      
      Functionality: Remove the first or last element of the Deque and throw an error if the Deque is empty.
+     
      These methods should have constant running time. 
 8. Robustify by throwing exceptions, etc.
 
